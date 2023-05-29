@@ -1,0 +1,27 @@
+<div class="outerDiv">
+  <div class="formInner">
+    <div class="toDoDiv">ToDo List</div>
+    <div class="inline-flex">
+      <input class="textBox" type="text" [(ngModel)]="toDoListValue" name="toDoList" placeholder=" ToDo List" />
+      <button class="formButton" (click)="addToDoList()">Add</button>
+    </div>
+    <table class="table">
+      <thead class=" block border-black border-2">
+        <tr class=" block border-black border-2">
+          <th class="w-36
+           border-2">Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody class=" block border-black border-2">
+        <tr class=" block border-black border-2" *ngFor="let item of toDoList">
+          <td>{{ item.value }}</td>
+          <td>
+            <button class="tableButton" (click)="editToDoList()">Edit</button>
+            <button class="tableButton" (click)="deleteToDoList()">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

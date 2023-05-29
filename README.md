@@ -1,4 +1,7 @@
 # AngularDevEx1
+Text Input can be added to local storage successfully.
+Table updated automatically from table data successfully.
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.3.
 

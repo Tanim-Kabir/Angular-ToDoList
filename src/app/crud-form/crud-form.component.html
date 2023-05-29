@@ -1,0 +1,28 @@
+<div class="outerDiv">
+  <div class="formInner" (ngSubmit)="onSubmit()">
+    <div class="toDoDiv">ToDo List</div>
+    <div class="inline-flex">
+      <input class="textBox" type="text" [(ngModel)]="textFieldValue" name="textInput" placeholder="{{ textFieldValue }}" />
+      <button class="formButton" (click)="onSubmit()" [(ngModel)]="submitButtonValue" name="inputButton">{{ submitButtonValue }}</button>
+    </div>
+    
+    <br />
+  
+    <div class="checkBoxDiv">
+      <label class="checkBoxLabel">
+        Search:
+        <input class="formCheckBox" type="checkbox" [(ngModel)]="checkbox1Value" (ngModelChange)="onCheckboxChange($event, 'Search')" name="checkbox1" />
+      </label>
+      <label class="checkBoxLabel">
+        Edit:
+        <input class="formCheckBox" type="checkbox" [(ngModel)]="checkbox2Value" (ngModelChange)="onCheckboxChange($event, 'Edit')" name="checkbox2" />
+      </label>
+      <label class="checkBoxLabel">
+        Delete:
+        <input class="formCheckBox" type="checkbox" [(ngModel)]="checkbox3Value" (ngModelChange)="onCheckboxChange($event, 'Delete')" name="checkbox3" />
+      </label>
+    </div>
+
+  </div>
+
+</div>
