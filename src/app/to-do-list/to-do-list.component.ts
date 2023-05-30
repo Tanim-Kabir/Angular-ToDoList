@@ -39,12 +39,14 @@ export class ToDoListComponent implements OnInit {
     }
   }
 
-  editToDoList(nme: any) {
-    let a = this.toDoList.splice(this.toDoList.indexOf(nme),1);
+  editToDoList(itm: any):void {
+    
+    
+  }
+
+  deleteToDoList(itm: any): void {
+    let a = this.toDoList.splice(this.toDoList.indexOf(itm),1);
     console.log(a);
     console.log(this.toDoList);
   }
-
-  deleteToDoList(): void {}
-
 }
