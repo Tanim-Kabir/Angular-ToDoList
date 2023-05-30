@@ -5,16 +5,17 @@ import { ToDoListFetchService } from './to-do-list-fetch.service';
 @Injectable({
   providedIn: 'root'
 })
-export class ToDoListAddService {
-  //private backendUrl = 'http://localhost/api/addToDoList.php'; // Replace with the actual URL of your PHP file
+export class ToDoListDeleteService {
   constructor(
     private http: HttpClient,
     private fetchToDoListService: ToDoListFetchService
-  ) {}
+  ) { }
 
-  addToDoList(item: any): void{
+  deleteTodoList(item: any) {
     const items = this.fetchToDoListService.fetchToDoList();
-    items.push(item);
+    let a = items.splice(items.indexOf(item), 1);
     localStorage.setItem('items', JSON.stringify(items));
+    console.log(a);
+    console.log(items);
   }
 }
