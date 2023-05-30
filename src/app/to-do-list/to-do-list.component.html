@@ -17,7 +17,7 @@
         <tr class=" block border-black border-2" *ngFor="let item of toDoList">
           <td>{{ item.value }}</td>
           <td>
-            <button class="tableButton" (click)="editToDoList()">Edit</button>
+            <button class="tableButton" (click)="editToDoList(item)">Edit</button>
             <button class="tableButton" (click)="deleteToDoList()">Delete</button>
           </td>
         </tr>
