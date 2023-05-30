@@ -36,7 +36,7 @@
   @apply ml-1 w-4 h-4;
 }
 .table {
-  @apply block border-black border-2 table-fixed;
+  @apply block table-fixed pl-2;
 }
 .tableButton {
   @apply w-14 h-6 ml-2 rounded-md bg-gray-300 text-sm font-bold text-black

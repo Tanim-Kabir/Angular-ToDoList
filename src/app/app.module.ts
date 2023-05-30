@@ -10,6 +10,7 @@ import { FormInputComponent } from './form-input/form-input.component';
 import { FormOutputComponent } from './form-output/form-output.component';
 import { CrudFormComponent } from './crud-form/crud-form.component';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ToDoListComponent } from './to-do-list/to-do-list.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
