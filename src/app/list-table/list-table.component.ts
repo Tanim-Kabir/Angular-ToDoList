@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ListTableComponent } from '../list-table/list-table.component';
+import { Component, OnInit, Input } from '@angular/core';
+import { ToDoListComponent } from '../to-do-list/to-do-list.component';
 import { HttpClient } from '@angular/common/http';
 import { ToDoListAddService } from '../to-do-list-add.service';
 import { ToDoListFetchService } from '../to-do-list-fetch.service';
@@ -7,48 +7,34 @@ import { ToDoListDeleteService } from '../to-do-list-delete.service';
 import { ToDoListEditService } from '../to-do-list-edit.service';
 
 @Component({
-  selector: 'app-to-do-list',
-  templateUrl: './to-do-list.component.html',
-  styleUrls: ['./to-do-list.component.css'],
+  selector: 'list-table',
+  templateUrl: './list-table.component.html',
+  styleUrls: ['./list-table.component.css']
 })
-export class ToDoListComponent implements OnInit {
+export class ListTableComponent {
   constructor(
-    private listTableComponent: ListTableComponent,
-    private addToDoListService: ToDoListAddService,
+    private toDoListComponent: ToDoListComponent,
     private fetchTodoListService: ToDoListFetchService,
     private editTodoListService: ToDoListEditService,
     private deleteTodoListService: ToDoListDeleteService
   ) {}
-
+  
+  @Input() item: any;
   toDoListValue: string = '';
-  //toDoList: any[] = [];
+  toDoList: any[] = [];
 
   ngOnInit(): void {
-    //this.fetch();
+    this.fetch();
   }
-  addToDoList(): void {
-    if (this.toDoListValue) {
-      const newItem = {
-        id: Math.random().toString(),
-        value: this.toDoListValue,
-      };
-      this.toDoListValue = "";
-      this.listTableComponent.addToDoList(newItem);    // Not in Service call
-      this.addToDoListService.addToDoList(newItem);
-      //alert('ToDoList added successfully');
-    } else {
-      alert('Please enter ToDo List name!');
-    }
+  addToDoList(item: any): void {
+    this.toDoList.push(this.item);
   }
-  getToDoListValue(): string {
-    let sample = this.toDoListValue;
-    return sample
-  }
-  /*fetch(): void {
+  fetch(): void {
     this.toDoList = this.fetchTodoListService.fetchToDoList();    // Service call
     console.log('items');
   }
   editToDoList(item: any): void {
+    let toDoListValue = this.toDoListComponent.getToDoListValue();
     let index = this.toDoList.indexOf(item);
     this.toDoList[index].value = this.toDoListValue;
     this.toDoListValue = "";
@@ -58,5 +44,5 @@ export class ToDoListComponent implements OnInit {
   deleteToDoList(item: any): void {
     let a = this.toDoList.splice(this.toDoList.indexOf(item), 1);
     this.deleteTodoListService.deleteTodoList(item);    // Service call
-  }*/
+  }
 }

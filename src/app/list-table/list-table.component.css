@@ -1,0 +1,8 @@
+.table {
+  @apply block table-fixed pl-2;
+}
+.tableButton {
+  @apply w-14 h-6 ml-2 rounded-md bg-gray-300 text-sm font-bold text-black
+  shadow-sm hover:bg-indigo-300 focus-visible:outline focus-visible:outline-2
+  focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
+}

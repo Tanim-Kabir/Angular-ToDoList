@@ -11,6 +11,7 @@ import { FormOutputComponent } from './form-output/form-output.component';
 import { CrudFormComponent } from './crud-form/crud-form.component';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ListTableComponent } from './list-table/list-table.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormOutputComponent,
     CrudFormComponent,
     ToDoListComponent,
+    ListTableComponent,
   ],
   imports: [
     BrowserModule,

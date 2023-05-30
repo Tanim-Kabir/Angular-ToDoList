@@ -1,0 +1,17 @@
+<table class="table">
+  <thead class="block">
+    <tr class="block">
+      <th class="w-52 border-gray border-b-2 text-left">Name</th>
+      <th class="w-32 border-gray border-b-2">Actions</th>
+    </tr>
+  </thead>
+  <tbody class="block">
+    <tr class="block" *ngFor="let item of toDoList">
+      <td class="w-52">{{ item.value }}</td>
+      <td>
+        <button class="tableButton" (click)="editToDoList(item)">Edit</button>
+        <button class="tableButton" (click)="deleteToDoList(item)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
