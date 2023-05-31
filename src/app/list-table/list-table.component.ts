@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ToDoListComponent } from '../to-do-list/to-do-list.component';
 import { HttpClient } from '@angular/common/http';
 import { ToDoListAddService } from '../to-do-list-add.service';
@@ -11,33 +11,31 @@ import { ToDoListEditService } from '../to-do-list-edit.service';
   templateUrl: './list-table.component.html',
   styleUrls: ['./list-table.component.css']
 })
-export class ListTableComponent {
+export class ListTableComponent implements OnInit {
   constructor(
+    //@Input() toDolistValue: string,
     private toDoListComponent: ToDoListComponent,
     private fetchTodoListService: ToDoListFetchService,
     private editTodoListService: ToDoListEditService,
     private deleteTodoListService: ToDoListDeleteService
   ) {}
   
-  @Input() item: any;
-  toDoListValue: string = '';
+  @Input() listData!: string;
+  @Output() editEventEmitter = new EventEmitter<void>();
+  @Output() addEventListener = new EventEmitter<void>(); // ********
   toDoList: any[] = [];
 
   ngOnInit(): void {
     this.fetch();
-  }
-  addToDoList(item: any): void {
-    this.toDoList.push(this.item);
   }
   fetch(): void {
     this.toDoList = this.fetchTodoListService.fetchToDoList();    // Service call
     console.log('items');
   }
   editToDoList(item: any): void {
-    let toDoListValue = this.toDoListComponent.getToDoListValue();
     let index = this.toDoList.indexOf(item);
-    this.toDoList[index].value = this.toDoListValue;
-    this.toDoListValue = "";
+    this.toDoList[index].value = this.listData;
+    this.editEventEmitter.emit();
     this.editTodoListService.editToDoList(index, this.toDoList[index].value);    // Service call
     //alert('ToDoList Editted successfully');
   }

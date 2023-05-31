@@ -27,7 +27,9 @@
           </td>
         </tr>
       </tbody>
-    </table> -->
-    <list-table></list-table>
+    </table>
+    <list-table [listData]="toDoListValue" (editEventEmitter)="handleEditEvent()" (addEventListener)="ngOnInit()"></list-table>  -->
+    <list-table [listData]="toDoListValue" (editEventEmitter)="handleEditEvent()"></list-table>
+    <!-- <list-table [listData]="toDoListValue"></list-table> -->
   </div>
 </div>
