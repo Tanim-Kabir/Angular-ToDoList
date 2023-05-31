@@ -1,0 +1,43 @@
+<div class="outerDiv">
+  <div class="innerDiv">
+    <div class="toDoDiv">ToDo List</div>
+    <div class="div1">
+      <div class="div2">
+        <label class="w-20">Name</label>
+        <input
+          class="textBox"
+          type="text"
+          name="toDoList"
+          placeholder="ToDo List"
+        />
+      </div>
+      <div class="div2">
+        <label class="w-20">Short Description</label>
+        <textarea
+          class="textArea"
+          type="text"
+          name="shortDes"
+          placeholder="ToDo List"
+        >
+        </textarea>
+      </div>
+      <div class="div2">
+        <label class="w-20">Status</label>
+        <select
+          class="textBox"
+          [(ngModel)]="dropDownOption"
+          (change)="onDropDownOptionChange($event)"
+        >
+          <option class="border-black border-2" value="option1">Pending</option>
+          <option value="option2">Active</option>
+          <option value="option3">Inactive</option>
+        </select>
+      </div>
+      <div class="div2">
+        <label class="w-20"></label>
+        <button class="formButton">Edit</button>
+        <!-- <button class="formButton" (click)="addToDoList()">Add</button> -->
+      </div>
+    </div>
+  </div>
+</div>

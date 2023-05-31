@@ -1,0 +1,15 @@
+nav {
+ @apply bg-indigo-600 h-8 pt-1 border-b-2 border-black;
+}
+ul {
+ @apply inline-flex;
+}
+li {
+ @apply text-base font-medium ml-5;
+}
+a {
+ @apply h-5 px-1 hover:rounded-sm hover:underline hover:decoration-2;
+}
+.active {
+  @apply underline decoration-2 font-semibold;
+}

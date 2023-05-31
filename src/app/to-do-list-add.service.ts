@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ToDoListFetchService } from './to-do-list-fetch.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ToDoListAddService {
   //private backendUrl = 'http://localhost/api/addToDoList.php'; // Replace with the actual URL of your PHP file
@@ -12,7 +12,7 @@ export class ToDoListAddService {
     private fetchToDoListService: ToDoListFetchService
   ) {}
 
-  addToDoList(item: any): void{
+  addToDoList(item: any): void {
     const items = this.fetchToDoListService.fetchToDoList();
     items.push(item);
     localStorage.setItem('items', JSON.stringify(items));

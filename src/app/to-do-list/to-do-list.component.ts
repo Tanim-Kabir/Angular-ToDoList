@@ -24,14 +24,14 @@ export class ToDoListComponent {
   listValue!: string;
   handleEditEvent() {
     this.toDoListValue = '';
-  }                             // **********
+  }
   addToDoList(): void {
     if (this.toDoListValue) {
       const newItem = {
         id: Math.random().toString(),
         value: this.toDoListValue,
       };
-      this.toDoListValue = "";
+      this.toDoListValue = '';
       this.addToDoListService.addToDoList(newItem);
       this.addEventEmitter.emit();
       //alert('ToDoList added successfully');
@@ -41,6 +41,6 @@ export class ToDoListComponent {
   }
   getToDoListValue(): string {
     let sample = this.toDoListValue;
-    return sample
+    return sample;
   }
 }

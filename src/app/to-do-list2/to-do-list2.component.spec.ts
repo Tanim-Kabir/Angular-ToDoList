@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListTableComponent } from './list-table.component';
+import { ToDoList2Component } from './to-do-list2.component';
 
-describe('ListTableComponent', () => {
-  let component: ListTableComponent;
-  let fixture: ComponentFixture<ListTableComponent>;
+describe('ToDoList2Component', () => {
+  let component: ToDoList2Component;
+  let fixture: ComponentFixture<ToDoList2Component>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ListTableComponent],
+      declarations: [ToDoList2Component]
     });
-    fixture = TestBed.createComponent(ListTableComponent);
+    fixture = TestBed.createComponent(ToDoList2Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
