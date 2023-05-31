@@ -21,7 +21,7 @@ export class ToDoListComponent {
 
   addEventEmitter = new EventEmitter<void>();
   toDoListValue: string = '';
-  //toDoList: any[] = [];
+  listValue!: string;
   handleEditEvent() {
     this.toDoListValue = '';
   }                             // **********

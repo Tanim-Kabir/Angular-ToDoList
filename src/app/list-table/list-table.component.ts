@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { ToDoListComponent } from '../to-do-list/to-do-list.component';
 import { HttpClient } from '@angular/common/http';
 import { ToDoListAddService } from '../to-do-list-add.service';
@@ -11,7 +11,7 @@ import { ToDoListEditService } from '../to-do-list-edit.service';
   templateUrl: './list-table.component.html',
   styleUrls: ['./list-table.component.css']
 })
-export class ListTableComponent implements OnInit {
+export class ListTableComponent implements OnChanges {
   constructor(
     //@Input() toDolistValue: string,
     private toDoListComponent: ToDoListComponent,
@@ -25,7 +25,7 @@ export class ListTableComponent implements OnInit {
   @Output() addEventListener = new EventEmitter<void>(); // ********
   toDoList: any[] = [];
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
     this.fetch();
   }
   fetch(): void {
