@@ -5,9 +5,7 @@ import {
   EventEmitter,
   OnChanges,
 } from '@angular/core';
-import { ToDoListComponent } from '../to-do-list/to-do-list.component';
 import { HttpClient } from '@angular/common/http';
-import { ToDoListAddService } from '../to-do-list-add.service';
 import { ToDoListFetchService } from '../to-do-list-fetch.service';
 import { ToDoListDeleteService } from '../to-do-list-delete.service';
 import { ToDoListEditService } from '../to-do-list-edit.service';
@@ -20,7 +18,6 @@ import { ToDoListEditService } from '../to-do-list-edit.service';
 export class ListTableComponent implements OnChanges {
   constructor(
     //@Input() toDolistValue: string,
-    private toDoListComponent: ToDoListComponent,
     private fetchTodoListService: ToDoListFetchService,
     private editTodoListService: ToDoListEditService,
     private deleteTodoListService: ToDoListDeleteService
@@ -35,18 +32,19 @@ export class ListTableComponent implements OnChanges {
     this.fetch();
   }
   fetch(): void {
-    this.toDoList = this.fetchTodoListService.fetchToDoList(); // Service call
-    console.log('items');
+    this.toDoList = this.fetchTodoListService.fetchUserToDoList(); // Service call
   }
   editToDoList(item: any): void {
     let index = this.toDoList.indexOf(item);
     this.toDoList[index].value = this.listData;
+    item.value = this.listData;
     this.editEventEmitter.emit();
-    this.editTodoListService.editToDoList(index, this.toDoList[index].value); // Service call
+    this.editTodoListService.editList(item); // Service call
     //alert('ToDoList Editted successfully');
   }
   deleteToDoList(item: any): void {
-    let a = this.toDoList.splice(this.toDoList.indexOf(item), 1);
-    this.deleteTodoListService.deleteTodoList(item); // Service call
+    let index = this.toDoList.indexOf(item);
+    let a = this.toDoList.splice(index, 1);
+    this.deleteTodoListService.deleteTodoList(index); // Service call
   }
 }

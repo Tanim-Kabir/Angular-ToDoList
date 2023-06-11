@@ -1,10 +1,5 @@
 import { Component, EventEmitter } from '@angular/core';
-import { ListTableComponent } from '../list-table/list-table.component';
-import { HttpClient } from '@angular/common/http';
 import { ToDoListAddService } from '../to-do-list-add.service';
-import { ToDoListFetchService } from '../to-do-list-fetch.service';
-import { ToDoListDeleteService } from '../to-do-list-delete.service';
-import { ToDoListEditService } from '../to-do-list-edit.service';
 
 @Component({
   selector: 'app-to-do-list',
@@ -14,9 +9,6 @@ import { ToDoListEditService } from '../to-do-list-edit.service';
 export class ToDoListComponent {
   constructor(
     private addToDoListService: ToDoListAddService,
-    private fetchTodoListService: ToDoListFetchService,
-    private editTodoListService: ToDoListEditService,
-    private deleteTodoListService: ToDoListDeleteService
   ) {}
 
   addEventEmitter = new EventEmitter<void>();

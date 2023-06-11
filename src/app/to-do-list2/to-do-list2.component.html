@@ -1,1 +1,117 @@
-<p>to-do-list2 works!</p>
+<div class="border-black border-0 flex justify-center">
+  <div class="w-fit h-fit mt-16 border-black border-0 rounded-lg">
+    <div class="block border-black border-0">
+      <div class="toDoDiv">List Table</div>
+    </div>
+    <div class="w-full pr-2 mb-1 flex justify-end">
+      <button
+        class="w-52 h-9 ml-0 py-0 text-sm items-center border-black border-2
+        font-medium text-red-50 rounded-md bg-indigo-800 hover:bg-violet-700"
+        type="button"
+        (click)="addNew()"
+        >Add New
+      </button>
+    </div>
+    <div class="block m-0 px-0 mr-4 border-black border-t-0 rounded-lg">
+      <input
+        class="textBox"
+        type="text"
+        [(ngModel)]="searchTerm"
+        (input)="performSearch()"
+        placeholder="Search from here ..."
+      />
+    </div>
+    <div class="w-fit m-2 border-black border-2 rounded-lg">
+      <div class="m-0 px-2 border-blue-900 border-0 flex justify-between">
+        <button class="normalItem" (click)="filterButtonCss('Pending', 0)" type="button"
+        [ngClass]="{'activeItem': pAiA[0] === true, 'normalItem': pAiA[0] === false}"
+        >Pending</button>
+        <button class="normalItem" (click)="filterButtonCss('Active', 1)" type="button"
+        [ngClass]="{'activeItem': pAiA[1] === true, 'normalItem': pAiA[1] === false}"
+        >Active</button>
+        <button class="normalItem" (click)="filterButtonCss('Inactive', 2)" type="button"
+        [ngClass]="{'activeItem': pAiA[2] === true, 'normalItem': pAiA[2] === false}"
+        >Inactive</button>
+        <button class="normalItem" (click)="filterButtonCss('All', 3)" type="button"
+        [ngClass]="{'activeItem': pAiA[3] === true, 'normalItem': pAiA[3] === false}"
+        >All</button>
+      </div>
+      <div class="border-blue-900 border-0 m-0 w-fit pr-3">
+        <table class="table ml-1 w-fit">
+          <thead class="block">
+            <tr class="block">
+              <th class="w-24 border-black border-b-2 text-left">Name
+                <button name="value" class="w-4 ml-9 text-base font-semibold hover:font-bold border-0" (click)="sort($event, sortTuple['value'].direction)">{{ sortTuple['value'].icon }}</button>
+              </th>
+              <th class="w-56 border-black border-b-2 text-left pl-1">Short_Description
+                <button name="shortDes" class="w-4 ml-20 text-base font-semibold hover:font-bold border-0" (click)="sort($event, sortTuple['shortDes'].direction)">{{ sortTuple['shortDes'].icon }}</button>
+              </th>
+              <th class="w-36 border-black border-b-2 text-left pl-1">Change_Status
+                <button name="status" class="w-4 ml-2 text-base font-semibold hover:font-bold border-0" (click)="sort($event, sortTuple['status'].direction)">{{ sortTuple['status'].icon }}</button>
+              </th>
+              <th class="w-28 border-black border-b-2">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="block">
+            <tr
+              class="block border-gray border-b-2 hover:bg-slate-300"
+              *ngFor="let item of tableArray"
+            >
+              <td class="w-24 border-gray border-r-2">{{ item.value }}</td>
+              <td class="w-56 border-gray border-r-2 pl-1">
+                {{ item.shortDes }}
+              </td>
+              <td class="w-32 border-gray border-r-2 pl-0">
+                <select
+                  class="w-32 border-gray border-0"
+                  [(ngModel)]="item.status"
+                  (change)="onStatusChange($event, item)"
+                >
+                  <option value="Pending">Pending</option>
+                  <option value="Active">Active</option>
+                  <option value="Inactive">Inactive</option>
+                </select>
+              </td>
+              <td class="pl-2 border-gray border-l-2">
+                <button class="tableButton" (click)="editList(item)">Edit</button>
+                <button class="tableButton" (click)="deleteList(item)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="m-2 mt-0 border-red-900 border-0 flex flex-row justify-between">
+      <div class="w-fit h-fit ml-2 border-blue-900 border-0 ">
+        <label class="">Limit:</label>
+        <select
+          class="pageLimit"
+          [(ngModel)]="pageSize"
+          (change)="onNoOfPagesChange($event)"
+        >
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+        </select>
+      </div>
+      <div class="border-red-700 border-0">
+        <label class="ml-2 px-2 border-black border">Pending:{{ pending }}</label>
+        <label class="ml-2 px-2 border-black border">Active:{{ active }}</label>
+        <label class="ml-2 px-2 border-black border">Inactive:{{ inactive }}</label>
+        <label class="ml-2 px-2 border-black border">All:{{ all }}</label>
+      </div>
+      <div class="border-black border-0 m-0 w-fit flex flex-row">
+        <button class="w-5 h-5 ml-1 p-0 font-semibold border-black border hover:bg-slate-200" (click)="leftPage()"><</button>
+        <div>
+          <button class="w-5 h-5 ml-1 p-0 font-semibold border-black border hover:bg-slate-200"
+            *ngFor="let i of range(1, totalPages)"
+            [ngClass]="{'selected': selectedButton === i}"
+            (click)="pageNoButton(i)"
+          >{{ i }}</button>
+        </div>
+        <button class="w-5 h-5 mx-1 p-0 font-semibold border-black border hover:bg-slate-200 active:border-red-800" (click)="rightPage()">></button>
+      </div>
+    </div>
+  </div>
+</div>

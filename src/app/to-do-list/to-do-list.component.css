@@ -1,7 +1,5 @@
 .outerDiv {
-  @apply flex justify-center
-  h-screen w-screen
-  p-20;
+  @apply flex justify-center p-20;
 }
 .formInner {
   @apply border-black border-2

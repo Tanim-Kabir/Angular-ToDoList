@@ -13,9 +13,8 @@ export class ToDoListDeleteService {
 
   deleteTodoList(item: any) {
     const items = this.fetchToDoListService.fetchToDoList();
-    let a = items.splice(items.indexOf(item), 1);
+    const index = items.indexOf(item);
+    items.splice(index, 1);
     localStorage.setItem('items', JSON.stringify(items));
-    console.log(a);
-    console.log(items);
   }
 }

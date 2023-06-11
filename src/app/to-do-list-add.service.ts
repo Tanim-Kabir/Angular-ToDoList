@@ -17,4 +17,9 @@ export class ToDoListAddService {
     items.push(item);
     localStorage.setItem('items', JSON.stringify(items));
   }
+  addUser(user: any): void {
+    const users = this.fetchToDoListService.fetchUsers();
+    users.push(user);
+    localStorage.setItem('users', JSON.stringify(users));
+  }
 }

@@ -1,0 +1,28 @@
+.outerDiv {
+  @apply mt-20 flex justify-center;
+}
+.innerDiv {
+  @apply w-fit pt-0 pl-0 border-black border-2 rounded-md;
+}
+.toDoOuterDiv {
+  @apply flex flex-row  border-black border-b-2 items-center mr-0 pl-0 justify-center;
+}
+.toDoDiv {
+  @apply flex justify-center text-4xl border-black border-0;
+}
+.LogIn {
+  @apply text-blue-900 ml-1 font-medium hover:font-semibold border-black border-0;
+}
+.div1 {
+  @apply p-2 flex flex-col justify-center border-black border-0;
+}
+.div2 {
+  @apply font-medium inline-flex items-center justify-between mb-2 border-black border-0;
+}
+.textBox {
+  @apply w-72 ml-2 pl-2 py-1.5 border-gray-500 border-2 rounded-lg;
+}
+.formButton {
+  @apply w-20 h-8 ml-0 py-0 text-base items-center
+  font-medium text-red-50 rounded-md bg-indigo-800 hover:bg-violet-700;
+}

@@ -1,4 +1,4 @@
-<nav>
+<nav class="flex justify-between">
   <ul>
     <li>
       <a routerLink="/list-1" routerLinkActive="active">List 1</a>
@@ -7,7 +7,12 @@
       <a routerLink="/list-2" routerLinkActive="active">List 2</a>
     </li>
     <li>
-      <a routerLink="/list-2-action" routerLinkActive="active">Action</a>
+      <a [routerLink]="['/list-2-action']" routerLinkActive="active">Action</a>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <a routerLink="/logIn" routerLinkActive="active">Log Out</a>
     </li>
   </ul>
 </nav>

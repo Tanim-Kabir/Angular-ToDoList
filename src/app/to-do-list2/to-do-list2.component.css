@@ -1,0 +1,28 @@
+.toDoDiv {
+  @apply flex justify-center text-4xl border-black;
+}
+.normalItem {
+  @apply w-20 m-2 border-cyan-900 border-2 rounded-sm bg-gray-200 hover:bg-gray-300 hover:ring-inset hover:ring-1;
+}
+.activeItem {
+  @apply w-20 m-2 border-cyan-900 border-2 rounded-sm bg-lime-300 ring-inset ring-2;
+}
+.table {
+  @apply block table-fixed pl-2;
+}
+.tableButton {
+  @apply w-14 h-6 ml-1 rounded-md bg-gray-300 text-sm font-bold text-black
+  shadow-sm hover:bg-indigo-300 focus-visible:outline focus-visible:outline-2
+  focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
+}
+.div2 {
+  @apply font-medium inline-flex items-center justify-center mb-2;
+}
+.textBox {
+  @apply w-full mx-2 pl-2 py-1.5 border-black border-2 rounded-lg;
+}
+.pageLimit {
+  @apply w-10 mx-0 pl-0 py-0 border-gray-500 border-0 rounded-lg;
+}.selected {
+  @apply w-5 h-5 ml-1 p-0 font-semibold border-red-900 border-2 hover:bg-slate-200;
+}

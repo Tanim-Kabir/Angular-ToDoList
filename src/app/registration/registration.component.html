@@ -1,0 +1,38 @@
+<div class='outerDiv'>
+  <div class='innerDiv'>
+    <div class='toDoOuterDiv'>
+      <div class='toDoDiv'>{{ formName }}</div>
+    </div>
+    <div class='div1'>
+      <div class='div2'>
+        <label class='w-20'>User Name</label>
+        <input
+          class='textBox'
+          type='text'
+          name='username'
+          [(ngModel)]="username"
+          placeholder='Username'
+        />
+      </div>
+      <div class='div2'>
+        <label class='w-20'>Password</label>
+        <input
+          class='textBox'
+          type='password'
+          name='password'
+          [(ngModel)]="password"
+          placeholder='Password'
+        />
+      </div>
+      <div class='div2'>
+        <div>
+          <label class='font-normal text-xs border-black border-0'>{{ advice }}</label>
+          <a [routerLink]="routerLink"  routerLinkActive='active' class='LogIn' (click)="optionChange()">{{ option }}</a>
+        </div>
+        <button class='formButton' (click)="logInOrSignUp()">{{ buttonName }}</button>
+        <!-- <button class='formButton' (click)='addToDoList()'>Add</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -10,10 +10,23 @@ export class ToDoListEditService {
     private http: HttpClient,
     private fetchToDoListService: ToDoListFetchService
   ) {}
-
-  editToDoList(index: number, value: string): void {
+  fetchItem(id: string): any {
     const items = this.fetchToDoListService.fetchToDoList();
-    items[index].value = value;
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].id === id) {
+        return items[i];
+      }
+    }
+  }
+  editList(item: any): void {
+    console.log('Edit Item: ', item);
+    const items = this.fetchToDoListService.fetchToDoList();
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].id === item.id) {
+        items[i] = item;
+        break;
+      }
+    }
     localStorage.setItem('items', JSON.stringify(items));
   }
 }
